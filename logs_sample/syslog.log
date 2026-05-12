@@ -1,0 +1,15 @@
+May 11 08:00:01 server kernel: [UFW BLOCK] IN=eth0 OUT= MAC=... SRC=185.220.101.45 DST=10.0.0.1 PROTO=TCP SPT=52341 DPT=22
+May 11 08:03:00 server systemd[1]: Unit mysql.service entered failed state.
+May 11 08:30:00 server kernel: nmap scan detected from 198.51.100.55
+May 11 09:00:00 server ftpd[999]: user anonymous connected from 45.33.32.156 — cleartext FTP session
+May 11 09:30:00 server cron[1100]: crontab modified by user deploy
+May 11 10:00:00 server kernel: [UFW BLOCK] IN=eth0 SRC=103.224.182.247 PROTO=TCP DPT=3306
+May 11 10:15:00 server systemd[1]: Unit postfix.service entered failed state.
+May 11 11:00:00 server kernel: suspicious process detected: unknown binary running in /tmp
+May 11 11:05:00 server clamav[2222]: Malware detected: Trojan.Generic in /tmp/.hidden_script
+May 11 11:30:00 server rsyslog: large data transfer detected from 10.0.0.8 to 45.33.32.156 port 4444
+May 11 12:00:00 server telnetd[3333]: user root connected from 192.168.5.10 — unencrypted telnet session
+May 11 13:00:00 server kernel: [UFW BLOCK] IN=eth0 SRC=185.56.83.23 PROTO=TCP DPT=8080
+May 11 14:00:00 server systemd[1]: Unit redis.service entered failed state.
+May 11 15:00:00 server rsyslog: configuration changed — sudoers file modified
+May 11 16:00:00 server kernel: port scan detected from 198.51.100.99

@@ -1,0 +1,20 @@
+May 11 08:01:12 server sshd[1234]: Failed password for root from 185.220.101.45 port 52341 ssh2
+May 11 08:01:13 server sshd[1234]: Failed password for admin from 185.220.101.45 port 52342 ssh2
+May 11 08:01:14 server sshd[1234]: Failed password for root from 185.220.101.45 port 52343 ssh2
+May 11 08:01:15 server sshd[1234]: POSSIBLE BREAK-IN ATTEMPT! from 185.220.101.45
+May 11 08:05:22 server sshd[2201]: Accepted password for deploy from 192.168.1.10 port 22 ssh2
+May 11 08:06:01 server sudo[3001]: deploy : TTY=pts/0 ; PWD=/var/www ; COMMAND=/usr/bin/systemctl restart nginx
+May 11 09:12:34 server sshd[1234]: Failed password for oracle from 45.33.32.156 port 44123 ssh2
+May 11 09:12:35 server sshd[1234]: Invalid user postgres from 45.33.32.156
+May 11 09:12:36 server sshd[1234]: Failed password for postgres from 45.33.32.156 port 44124 ssh2
+May 11 09:15:00 server sshd[1234]: many authentication failures from 45.33.32.156
+May 11 09:30:00 server sudo[4001]: admin : TTY=pts/1 ; PWD=/etc ; COMMAND=/usr/sbin/visudo
+May 11 10:00:00 server sshd[2500]: Accepted publickey for sysadmin from 10.0.0.5 port 22 ssh2
+May 11 10:01:00 server sudo[5001]: sysadmin : TTY=pts/2 ; COMMAND=/bin/bash
+May 11 10:45:00 server sshd[1234]: Failed password for testuser from 203.0.113.42 port 31337 ssh2
+May 11 10:45:01 server sshd[1234]: Failed password for testuser from 203.0.113.42 port 31338 ssh2
+May 11 11:00:00 server pam_unix: authentication failure; logname=www-data uid=33 tty= rhost=198.51.100.1
+May 11 11:30:00 server sshd[1234]: Failed password for user1 from 185.56.83.23 port 55001 ssh2
+May 11 12:00:00 server sshd[2800]: Accepted password for backup from 192.168.1.25 port 22 ssh2
+May 11 13:00:00 server sudo[6001]: backup : TTY=pts/3 ; COMMAND=/usr/bin/passwd root
+May 11 14:00:00 server sshd[1234]: Failed password for admin from 103.224.182.247 port 43210 ssh2
