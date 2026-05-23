@@ -594,6 +594,14 @@ fig_radar_big.update_layout(
     ),
 )
 apply_dark_font(fig_radar_big)
+# Force black on legend and polar axis after apply_dark_font
+fig_radar_big.update_layout(
+    legend=dict(font=dict(color="#000000", size=12)),
+)
+fig_radar_big.update_polars(
+    angularaxis=dict(tickfont=dict(color="#000000", size=13, family="Arial Black")),
+    radialaxis=dict(tickfont=dict(color="#444444", size=10)),
+)
 st.plotly_chart(fig_radar_big, use_container_width=True)
 
 # ════════════════════════════════════════════════════════
@@ -678,6 +686,10 @@ if hasattr(result, "a8_sub_scores") and result.a8_sub_scores:
         ),
     )
     apply_dark_font(fig_a8)
+    fig_a8.update_layout(legend=dict(font=dict(color="#000000", size=11)))
+    fig_a8.update_polars(
+        angularaxis=dict(tickfont=dict(color="#000000", size=11, family="Arial")),
+    )
 
     col_a8r, col_a8info = st.columns([3, 2])
     with col_a8r:
