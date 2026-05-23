@@ -1484,7 +1484,7 @@ if run_dl or "dl_result" in st.session_state:
                                "Pérdida LSTM (Binary CE)", "#6A1B9A")
         st.plotly_chart(fig, use_container_width=True)
         sm = dl_res.lstm_summary
-        acc = f"{sm['final_val_accuracy']:.1%}" if sm.get('final_val_acc') else "N/A"
+        acc = f"{sm['final_val_acc']:.1%}" if sm.get('final_val_acc') else "N/A"
         st.caption(f"Parámetros: {sm['parameters']:,} · Épocas: {sm['epochs_trained']} · Acc val: {acc}")
 
     with tc3:
@@ -1494,7 +1494,7 @@ if run_dl or "dl_result" in st.session_state:
                                "Pérdida MLP (Categorical CE)", "#E65100")
         st.plotly_chart(fig, use_container_width=True)
         sm = dl_res.mlp_summary
-        acc = f"{sm['final_val_accuracy']:.1%}" if sm.get('final_val_acc') else "N/A"
+        acc = f"{sm['final_val_acc']:.1%}" if sm.get('final_val_acc') else "N/A"
         st.caption(f"Parámetros: {sm['parameters']:,} · Épocas: {sm['epochs_trained']} · Acc val: {acc}")
 
     # ════════════════════════════════════════════════════════
