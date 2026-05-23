@@ -234,7 +234,7 @@ with tab_compare:
             st.success(f"✅ {len(compare_results)} archivos analizados")
             COMPARE_COLORS = ["#1565C0","#C62828","#2E7D32","#6A1B9A","#E65100"]
             DOMAIN_KEYS_C  = list(ISO27001_DOMAINS.keys())
-            _CLBL = {"A5_organizational":"A.5<br>Organizacional","A6_people":"A.6<br>Personas","A7_physical":"A.7<br>Físico","A8_technological":"A.8<br>Tecnológico","A8_technological":"A.8<br>Tecnológico","A8_technological":"A.8<br>Tecnológico"}
+            _CLBL = {"A5_organizational":"A.5<br>Organizacional","A6_people":"A.6<br>Personas","A7_physical":"A.7<br>Físico","A8_technological":"A.8<br>Controles<br>Tecnológicos"}
             labels_c = [_CLBL.get(k, k)
                         for k, r in [(k, compare_results[0]["result"].domain_scores) for k in DOMAIN_KEYS_C]]
 
@@ -440,7 +440,7 @@ with col_radar:
         "A5_organizational": "A.5<br>Organizacional",
         "A6_people":         "A.6<br>Personas",
         "A7_physical":       "A.7<br>Físico",
-        "A8_technological":  "A.8<br>Tecnológico",
+        "A8_technological":  "A.8<br>Controles<br>Tecnológicos",
     }
     labels_radar = [_RADAR_LBL.get(d.domain_key, d.domain_id) for d in domains]
     fig_radar = go.Figure()
@@ -631,9 +631,9 @@ if hasattr(result, "a8_sub_scores") and result.a8_sub_scores:
             r=[sc], theta=[lbl],
             mode="markers+text",
             marker=dict(size=10, color=C["level"].get(lv, "#1565C0"), symbol="circle"),
-            text=[f"Nv{lv} · {sc:.0f}"],
+            text=[f"Nv{lv} · {sc:.1f}"],
             textposition="top center",
-            textfont=dict(size=10, color="#1A1A2E"),
+            textfont=dict(size=11, color="#1A1A2E", family="Arial Black"),
             showlegend=False, hoverinfo="skip",
         ))
     # Anillo referencia Nv3=60
@@ -644,14 +644,18 @@ if hasattr(result, "a8_sub_scores") and result.a8_sub_scores:
     ))
     fig_a8.update_layout(
         polar=dict(
-            radialaxis=dict(visible=True, range=[0,100], tickfont=dict(size=9),
+            radialaxis=dict(visible=True, range=[0,110], tickfont=dict(size=9),
                             gridcolor="#E8EAF6", tickvals=[20,40,60,80,100]),
-            angularaxis=dict(tickfont=dict(size=10, color="#1A1A2E")),
+            angularaxis=dict(
+                tickfont=dict(size=11, color="#1A1A2E", family="Arial"),
+                rotation=90,
+            ),
             bgcolor="white",
+            domain=dict(x=[0.05, 0.95], y=[0.05, 0.95]),
         ),
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.2, x=0.5, xanchor="center"),
-        height=480, margin=dict(l=80,r=80,t=60,b=80), paper_bgcolor="white",
+        legend=dict(orientation="h", yanchor="bottom", y=-0.25, x=0.5, xanchor="center"),
+        height=520, margin=dict(l=110,r=110,t=80,b=100), paper_bgcolor="white",
         title=dict(
             text="<b>Desglose A.8 Controles Tecnológicos</b>  ·  "
                  "ISO/IEC 27002:2022 (guía de implementación)  ·  "
@@ -697,17 +701,13 @@ DOMAIN_BADGE_2022 = {
     "A5_organizational": "A.5 (37 controles)",
     "A6_people":         "A.6 (8 controles)",
     "A7_physical":       "A.7 (14 controles)",
-    "A8_technological":         "A.8 Acceso",
-    "A8_technological":          "A.8 Red/Cripto",
-    "A8_technological":        "A.8 Detección",
+    "A8_technological":  "A.8 Controles Tecnológicos",
 }
 DOMAIN_SHORT_2022 = {
     "A5_organizational": "A.5 Organizacional",
     "A6_people":         "A.6 Personas",
     "A7_physical":       "A.7 Físico",
-    "A8_technological":         "A.8 Acc/MFA",
-    "A8_technological":          "A.8 Red/Cripto",
-    "A8_technological":        "A.8 Amenazas",
+    "A8_technological":  "A.8 Controles Tecnológicos",
 }
 
 st.markdown("##### 📌 Interpretación del perfil de madurez por dominio")
