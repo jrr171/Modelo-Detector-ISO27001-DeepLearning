@@ -1567,7 +1567,8 @@ if run_dl or "dl_result" in st.session_state:
         st.markdown("#### Distribución de Niveles de Amenaza")
         tl = dl_res.threat_level
         labels_t = ["🟢 Bajo (<50%)", "🟡 Medio (50–75%)", "🔴 Alto (>75%)"]
-        vals_t   = [tl["pct_low_threat"], tl["pct_medium_threat"], tl["pct_high_threat"]]
+        vals_t   = [tl.get("pct_low_threat", 100.0 - tl.get("pct_high_threat",0) - tl.get("pct_medium_threat",0)),
+                    tl.get("pct_medium_threat", 0.0), tl.get("pct_high_threat", 0.0)]
         fig_donut = go.Figure(go.Pie(
             labels=labels_t, values=vals_t,
             marker=dict(colors=["#2E7D32","#F57F17","#C62828"],
