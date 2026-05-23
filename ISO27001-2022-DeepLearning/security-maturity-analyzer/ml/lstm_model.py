@@ -17,7 +17,12 @@ Técnicas DL: BiLSTM, Attention mechanism, BatchNorm, Dropout, Adam,
 """
 
 import numpy as np
-import torch
+try:
+    import torch
+    TORCH_OK = True
+except ImportError:
+    TORCH_OK = False
+    import warnings; warnings.warn(f"PyTorch no instalado en {__file__}. Instalar con: pip install torch")
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
