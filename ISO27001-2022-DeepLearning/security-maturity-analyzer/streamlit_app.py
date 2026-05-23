@@ -1424,25 +1424,46 @@ if run_dl or "dl_result" in st.session_state:
     tc1, tc2, tc3 = st.columns(3)
 
     def plot_loss_curve(train_loss, val_loss, train_acc, val_acc, title, color):
+        if not train_loss:
+            fig = go.Figure()
+            fig.add_annotation(text="Modelo no entrenado aún",
+                               xref="paper", yref="paper", x=0.5, y=0.5,
+                               showarrow=False, font=dict(size=14, color="#888"))
+            fig.update_layout(height=240, paper_bgcolor="white", plot_bgcolor="white",
+                              title=dict(text=title, font=dict(size=13, color=color)))
+            return fig
         epochs_ax = list(range(1, len(train_loss)+1))
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=epochs_ax, y=train_loss, name="Train Loss",
-            line=dict(color=color, width=2), mode="lines"))
+            line=dict(color=color, width=2.5), mode="lines"))
         if val_loss:
             fig.add_trace(go.Scatter(x=epochs_ax, y=val_loss[:len(epochs_ax)], name="Val Loss",
-                line=dict(color=color, width=2, dash="dot"), mode="lines"))
-        if train_acc:
-            fig2_ax = go.Scatter(x=epochs_ax, y=[a*max(train_loss) for a in train_acc],
-                name="Train Acc (escalada)", line=dict(color="#FFA726", width=1.5, dash="dash"),
-                mode="lines", yaxis="y2", visible="legendonly")
-            fig.add_trace(fig2_ax)
+                line=dict(color=color, width=1.8, dash="dot"), mode="lines", opacity=0.75))
+        if train_acc and val_loss:
+            # Accuracy on secondary y-axis (0–1 → 0–100%)
+            fig.add_trace(go.Scatter(
+                x=epochs_ax, y=[a*100 for a in train_acc[:len(epochs_ax)]],
+                name="Train Acc %", line=dict(color="#FFA726", width=1.5, dash="dash"),
+                mode="lines", yaxis="y2"))
+            if val_acc:
+                fig.add_trace(go.Scatter(
+                    x=epochs_ax, y=[a*100 for a in val_acc[:len(epochs_ax)]],
+                    name="Val Acc %", line=dict(color="#FF6F00", width=1.2, dash="dot"),
+                    mode="lines", yaxis="y2", opacity=0.7))
+        # Auto-scale y-axis based on actual values
+        y_min = min(train_loss) * 0.9
+        y_max = max(train_loss) * 1.1
         fig.update_layout(
             title=dict(text=title, font=dict(size=13, color=color)),
-            height=240, margin=dict(l=10,r=10,t=40,b=30),
+            height=250, margin=dict(l=45,r=45,t=45,b=35),
             paper_bgcolor="white", plot_bgcolor="white",
-            legend=dict(orientation="h", y=-0.25, font=dict(size=9)),
-            xaxis=dict(title="Época", gridcolor="#F0F0F0"),
-            yaxis=dict(title="Pérdida", gridcolor="#F0F0F0"),
+            legend=dict(orientation="h", y=-0.28, font=dict(size=9)),
+            xaxis=dict(title="Época", gridcolor="#F0F0F0", tickmode="auto"),
+            yaxis=dict(title="Pérdida", gridcolor="#F0F0F0",
+                       range=[y_min, y_max], tickformat=".4f", autorange=False),
+            yaxis2=dict(title="Accuracy %", overlaying="y", side="right",
+                        range=[0, 105], tickformat=".0f", showgrid=False,
+                        tickcolor="#FFA726", titlefont=dict(color="#FFA726")),
         )
         return fig
 
@@ -1460,7 +1481,7 @@ if run_dl or "dl_result" in st.session_state:
                                "Pérdida LSTM (Binary CE)", "#6A1B9A")
         st.plotly_chart(fig, use_container_width=True)
         sm = dl_res.lstm_summary
-        acc = f"{sm['final_val_accuracy']:.1%}" if sm.get('final_val_accuracy') else "N/A"
+        acc = f"{sm['final_val_accuracy']:.1%}" if sm.get('final_val_acc') else "N/A"
         st.caption(f"Parámetros: {sm['parameters']:,} · Épocas: {sm['epochs_trained']} · Acc val: {acc}")
 
     with tc3:
@@ -1470,7 +1491,7 @@ if run_dl or "dl_result" in st.session_state:
                                "Pérdida MLP (Categorical CE)", "#E65100")
         st.plotly_chart(fig, use_container_width=True)
         sm = dl_res.mlp_summary
-        acc = f"{sm['final_val_accuracy']:.1%}" if sm.get('final_val_accuracy') else "N/A"
+        acc = f"{sm['final_val_accuracy']:.1%}" if sm.get('final_val_acc') else "N/A"
         st.caption(f"Parámetros: {sm['parameters']:,} · Épocas: {sm['epochs_trained']} · Acc val: {acc}")
 
     # ════════════════════════════════════════════════════════
@@ -1481,25 +1502,28 @@ if run_dl or "dl_result" in st.session_state:
 
     with ae1:
         st.markdown("#### Distribución del Error de Reconstrucción")
-        scores_norm = dl_res.anomaly_scores
+        # Scale raw MSE scores to 0-100 relative to autoencoder threshold
+        _raw = dl_res.anomaly_scores
+        _thr = dl_res.autoencoder_threshold if dl_res.autoencoder_threshold > 0 else (_raw.max() or 0.1)
+        scores_norm = np.clip(_raw / _thr * 50, 0, 200)  # threshold → 50 on 0-100 scale
         normal_scores = scores_norm[~dl_res.is_anomaly]
         anom_scores   = scores_norm[dl_res.is_anomaly]
 
         fig_hist_ae = go.Figure()
         if len(normal_scores):
             fig_hist_ae.add_trace(go.Histogram(
-                x=normal_scores, name="Eventos Normales",
+                x=normal_scores.tolist(), name="Eventos Normales",
                 marker_color=hex_rgba("#2E7D32", 0.7), nbinsx=40,
                 hovertemplate="Score: %{x:.1f}<br>Eventos: %{y}<extra>Normal</extra>",
             ))
         if len(anom_scores):
             fig_hist_ae.add_trace(go.Histogram(
-                x=anom_scores, name="Anomalías Detectadas",
+                x=anom_scores.tolist(), name="Anomalías Detectadas",
                 marker_color=hex_rgba("#C62828", 0.7), nbinsx=40,
                 hovertemplate="Score: %{x:.1f}<br>Eventos: %{y}<extra>Anomalía</extra>",
             ))
         fig_hist_ae.add_vline(x=50, line_dash="dash", line_color="#F57F17",
-                               annotation_text="Umbral (P95)", line_width=2)
+                               annotation_text=f"Umbral P95 (MSE={_thr:.4f})", line_width=2)
         fig_hist_ae.update_layout(
             barmode="overlay", height=280,
             margin=dict(l=10,r=10,t=10,b=30),
@@ -1513,10 +1537,10 @@ if run_dl or "dl_result" in st.session_state:
 
     with ae2:
         st.markdown("#### Timeline de Anomalías Detectadas")
-        step = max(1, len(scores_norm) // 200)
+        step = max(1, len(scores_norm) // 300)
         idx_plot = list(range(0, len(scores_norm), step))
         scores_plot = scores_norm[idx_plot]
-        colors_plot = ["#C62828" if s >= 50 else "#2E7D32" for s in scores_plot]
+        colors_plot = ["#C62828" if s >= 50 else "#388E3C" for s in scores_plot.tolist()]
 
         fig_time = go.Figure()
         fig_time.add_trace(go.Scatter(
@@ -1580,8 +1604,14 @@ if run_dl or "dl_result" in st.session_state:
         labels_t = ["🟢 Bajo (<50%)", "🟡 Medio (50–75%)", "🔴 Alto (>75%)"]
         vals_t   = [tl.get("pct_low_threat", 100.0 - tl.get("pct_high_threat",0) - tl.get("pct_medium_threat",0)),
                     tl.get("pct_medium_threat", 0.0), tl.get("pct_high_threat", 0.0)]
+        # Ensure all values are non-negative and sum to 100
+        _low  = max(0.01, vals_t[0])
+        _med  = max(0.01, vals_t[1])
+        _high = max(0.01, vals_t[2])
+        _tot  = _low + _med + _high
+        vals_t_norm = [_low/_tot*100, _med/_tot*100, _high/_tot*100]
         fig_donut = go.Figure(go.Pie(
-            labels=labels_t, values=vals_t,
+            labels=labels_t, values=vals_t_norm,
             marker=dict(colors=["#2E7D32","#F57F17","#C62828"],
                         line=dict(color="white", width=2)),
             hole=0.5,
@@ -1611,9 +1641,13 @@ if run_dl or "dl_result" in st.session_state:
 
     with ml1:
         st.markdown("#### Probabilidades por Nivel de Madurez (MLP)")
-        probs_dict = dl_res.dl_probabilities
-        niveles_lbl = [f"Nivel {i}\n{ML[i]['name'][:10]}" for i in range(6)]
-        probs_vals  = [probs_dict.get(i, 0) for i in range(6)]
+        probs_dict = dl_res.dl_probabilities or {}
+        niveles_lbl = [f"Nivel {i}\n{ML[i]['name'][:12]}" for i in range(6)]
+        # Values are 0-1 floats from softmax → convert to %
+        probs_vals  = [round(probs_dict.get(i, 0.0) * 100, 1) for i in range(6)]
+        # If all zero (model not run), show uniform
+        if sum(probs_vals) < 0.1:
+            probs_vals = [round(100/6, 1)] * 6
         bar_col_mlp = [level_color(i) for i in range(6)]
 
         fig_mlp = go.Figure(go.Bar(
@@ -1647,7 +1681,7 @@ if run_dl or "dl_result" in st.session_state:
         compare_data = {
             "Método": ["Sistema de Reglas\n(ISO 27001)", "MLP — Deep Learning\n(Clasificador neuronal)", "Score Ajustado DL\n(con penalización AE)"],
             "Nivel":  [rule_lvl, dl_lvl, int(adj_score / 20)],
-            "Score":  [dl_res.rule_based_score, dl_res.dl_confidence, adj_score],
+            "Score":  [dl_res.rule_based_score, round(dl_res.dl_confidence * 100, 1), adj_score],
             "Color":  [level_color(rule_lvl), level_color(dl_lvl), level_color(int(adj_score/20))],
         }
         fig_comp = go.Figure()
