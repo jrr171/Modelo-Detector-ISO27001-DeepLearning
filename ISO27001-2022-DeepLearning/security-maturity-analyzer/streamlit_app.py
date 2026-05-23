@@ -1506,11 +1506,13 @@ if run_dl or "dl_result" in st.session_state:
     with ae1:
         st.markdown("#### Distribución del Error de Reconstrucción")
         # Scale raw MSE scores to 0-100 relative to autoencoder threshold
-        _raw = dl_res.anomaly_scores
-        _thr = dl_res.autoencoder_threshold if dl_res.autoencoder_threshold > 0 else (_raw.max() or 0.1)
-        scores_norm = np.clip(_raw / _thr * 50, 0, 200)  # threshold → 50 on 0-100 scale
-        normal_scores = scores_norm[~dl_res.is_anomaly]
-        anom_scores   = scores_norm[dl_res.is_anomaly]
+        import numpy as _np
+        _raw = _np.array(dl_res.anomaly_scores, dtype=float)
+        _thr = float(dl_res.autoencoder_threshold) if dl_res.autoencoder_threshold > 0 else float(_raw.max() or 0.1)
+        scores_norm = _np.clip(_raw / _thr * 50, 0, 200)  # threshold → 50 on display scale
+        _mask = _np.array(dl_res.is_anomaly, dtype=bool)
+        normal_scores = scores_norm[~_mask]
+        anom_scores   = scores_norm[_mask]
 
         fig_hist_ae = go.Figure()
         if len(normal_scores):
@@ -1543,7 +1545,7 @@ if run_dl or "dl_result" in st.session_state:
         step = max(1, len(scores_norm) // 300)
         idx_plot = list(range(0, len(scores_norm), step))
         scores_plot = scores_norm[idx_plot]
-        colors_plot = ["#C62828" if s >= 50 else "#388E3C" for s in scores_plot.tolist()]
+        colors_plot = ["#C62828" if float(s) >= 50 else "#388E3C" for s in scores_plot.tolist()]
 
         fig_time = go.Figure()
         fig_time.add_trace(go.Scatter(
