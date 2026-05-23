@@ -1615,13 +1615,21 @@ if run_dl or "dl_result" in st.session_state:
         _high = max(0.01, vals_t[2])
         _tot  = _low + _med + _high
         vals_t_norm = [_low/_tot*100, _med/_tot*100, _high/_tot*100]
+        _visible_labels = [
+            f"{lbl}<br>{v:.1f}%" if v >= 1.0 else ""
+            for lbl, v in zip(labels_t, vals_t_norm)
+        ]
         fig_donut = go.Figure(go.Pie(
             labels=labels_t, values=vals_t_norm,
             marker=dict(colors=["#2E7D32","#F57F17","#C62828"],
                         line=dict(color="white", width=2)),
+            text=_visible_labels,
+            textinfo="text",
+            textfont=dict(size=12),
+            insidetextorientation="radial",
+            pull=[0.05 if v == max(vals_t_norm) else 0 for v in vals_t_norm],
             hole=0.5,
             hovertemplate="%{label}<br>%{value:.1f}%<extra></extra>",
-            textinfo="percent+label", textfont=dict(size=11),
         ))
         fig_donut.update_layout(
             height=280, margin=dict(l=10,r=10,t=10,b=30),
@@ -1668,10 +1676,10 @@ if run_dl or "dl_result" in st.session_state:
                            annotation_text=f"▲ Predicción: Nivel {pred_lvl}",
                            annotation_font_color=level_color(pred_lvl))
         fig_mlp.update_layout(
-            height=300, margin=dict(l=10,r=10,t=20,b=10),
+            height=320, margin=dict(l=10,r=10,t=20,b=80),
             paper_bgcolor="white", plot_bgcolor="white",
-            yaxis=dict(title="Probabilidad (%)", range=[0,105], gridcolor="#F0F0F0"),
-            xaxis=dict(tickfont=dict(size=9)),
+            yaxis=dict(title="Probabilidad (%)", range=[0,115], gridcolor="#F0F0F0"),
+            xaxis=dict(tickfont=dict(size=9), tickangle=-30),
             showlegend=False,
         )
         apply_dark_font(fig_mlp)
@@ -1694,7 +1702,8 @@ if run_dl or "dl_result" in st.session_state:
             x=compare_data["Método"],
             y=compare_data["Score"],
             marker_color=compare_data["Color"],
-            text=[f"Nivel {l}<br>{s:.1f}" for l,s in zip(compare_data["Nivel"], compare_data["Score"])],
+            text=[f"Nivel {l}<br>{s:.1f}{'%' if i==1 else ''}"
+                  for i,(l,s) in enumerate(zip(compare_data["Nivel"], compare_data["Score"]))],
             textposition="outside",
             hovertemplate="<b>%{x}</b><br>%{text}<extra></extra>",
         ))
