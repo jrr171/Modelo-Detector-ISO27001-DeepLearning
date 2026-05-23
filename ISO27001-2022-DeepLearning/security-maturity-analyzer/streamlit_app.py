@@ -928,7 +928,10 @@ with col_heat:
         ds = domain_stats[d.domain_key]
         rrate   = round(ds.risk_rate * 100, 1)
         inv_sc  = round(100 - d.raw_score, 1)
-        crit    = min(100, ds.critical_events * 10)
+        # Aproximar eventos críticos desde mensajes con palabras clave de alta severidad
+        _crit_kws = ["CRITICAL","ransomware","breach","exfiltrat","zero.day","exploit","ddos","lateral_movement"]
+        _n_crit = sum(1 for m in ds.raw_messages if any(k.lower() in m.lower() for k in _crit_kws))
+        crit    = min(100, _n_crit * 10 + ds.risk_events * 2)
         cov_ips = min(100, len(ds.unique_ips) * 5)
         heat_data.append([rrate, inv_sc, crit, cov_ips])
 
@@ -973,9 +976,9 @@ with col_sun:
         sun_ids.append(did); sun_labels.append(DOMAIN_SHORT_2022.get(d.domain_key, d.domain_name[:18]))
         sun_parents.append("root"); sun_vals.append(ds.total_events); sun_colors.append(C["domains"][i % len(C["domains"])])
 
-        if ds.indicator_events > 0:
+        if ds.safe_events > 0:
             sun_ids.append(f"{did}_ok"); sun_labels.append("Seguros")
-            sun_parents.append(did); sun_vals.append(ds.indicator_events); sun_colors.append("#66BB6A")
+            sun_parents.append(did); sun_vals.append(ds.safe_events); sun_colors.append("#66BB6A")
         if ds.risk_events > 0:
             sun_ids.append(f"{did}_risk"); sun_labels.append("Riesgo")
             sun_parents.append(did); sun_vals.append(ds.risk_events); sun_colors.append("#EF5350")
