@@ -237,7 +237,7 @@ class LSTMThreatDetector:
         if len(probs) == 0:
             return {"mean_threat_prob": 0.0, "max_threat_prob": 0.0,
                     "pct_high_threat": 0.0, "pct_medium_threat": 0.0,
-                    "pct_low_threat": 100.0}
+                    "pct_low_threat": 100.0, "total_sequences": 0}
         pct_high   = float(np.mean(probs > 0.75) * 100)
         pct_medium = float(np.mean((probs > 0.50) & (probs <= 0.75)) * 100)
         pct_low    = max(0.0, 100.0 - pct_high - pct_medium)
@@ -247,6 +247,7 @@ class LSTMThreatDetector:
             "pct_high_threat":    pct_high,
             "pct_medium_threat":  pct_medium,
             "pct_low_threat":     pct_low,
+            "total_sequences":    len(probs),
         }
 
     def summary(self) -> Dict:
