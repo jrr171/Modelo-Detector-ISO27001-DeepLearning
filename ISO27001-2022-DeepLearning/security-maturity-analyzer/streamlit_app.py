@@ -1580,16 +1580,16 @@ if run_dl or "dl_result" in st.session_state:
         fig_donut.update_layout(
             height=280, margin=dict(l=10,r=10,t=10,b=30),
             paper_bgcolor="white", showlegend=False,
-            annotations=[dict(text=f"{tl['mean_threat_prob']:.1%}<br>media", x=0.5, y=0.5,
+            annotations=[dict(text=f"{tl.get('mean_threat_prob',0.0):.1%}<br>media", x=0.5, y=0.5,
                               font_size=12, showarrow=False)],
         )
         apply_dark_font(fig_donut)
         st.plotly_chart(fig_donut, use_container_width=True)
 
     st.info(
-        f"🟣 **LSTM:** Prob. amenaza máxima detectada: **{tl['max_threat_prob']:.1%}** · "
-        f"Ventanas de alto riesgo: **{tl['pct_high_threat']:.1f}%** · "
-        f"Secuencias analizadas: **{tl['total_sequences']:,}**"
+        f"🟣 **LSTM:** Prob. amenaza máxima detectada: **{tl.get('max_threat_prob',0.0):.1%}** · "
+        f"Ventanas de alto riesgo: **{tl.get('pct_high_threat',0.0):.1f}%** · "
+        f"Secuencias analizadas: **{tl.get('total_sequences', len(entries) // 20 or 1):,}**"
     )
 
     # ════════════════════════════════════════════════════════
