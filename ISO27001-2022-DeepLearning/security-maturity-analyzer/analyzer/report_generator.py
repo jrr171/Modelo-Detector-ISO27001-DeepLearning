@@ -218,9 +218,11 @@ def export_html(result: MaturityResult, log_path: str, output_path: str) -> None
                           key=lambda x: x[1].raw_score):
         notes_html = "".join(
             f'<li style="color:#FFC107;">⚠ {n}</li>'
-            for n in ([f"Tasa de riesgo {Score bajo ({ds.raw_score:.1f}/100). Controles {ds.domain_id} requieren atención."] if ds.raw_score < 40
-                      else [f"Score moderado ({ds.raw_score:.1f}/100). Reforzar {ds.domain_id}."] if ds.raw_score < 60
-                      else [])
+            for n in (
+                [f"Score bajo ({ds.raw_score:.1f}/100). Reforzar controles {ds.domain_id}."] if ds.raw_score < 40
+                else [f"Score moderado ({ds.raw_score:.1f}/100). Revisar {ds.domain_id}."] if ds.raw_score < 60
+                else []
+            )
         ) if ds.raw_score < 60 else ""
         bd = ds.breakdown
         domain_rows += f"""
