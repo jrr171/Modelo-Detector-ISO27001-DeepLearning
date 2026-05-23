@@ -70,8 +70,8 @@ def hex_rgba(hex_color: str, alpha: float = 1.0) -> str:
 
 
 # Configuración global de fuente oscura para todos los gráficos Plotly
-PLOTLY_FONT = dict(family="Inter, Arial, sans-serif", size=12, color="#1A1A2E")
-PLOTLY_AXIS = dict(gridcolor="#E8EAF6", tickfont=dict(color="#1A1A2E", size=11), titlefont=dict(color="#1A1A2E", size=12))
+PLOTLY_FONT = dict(family="Inter, Arial, sans-serif", size=12, color="#000000")
+PLOTLY_AXIS = dict(gridcolor="#E8EAF6", tickfont=dict(color="#000000", size=11), titlefont=dict(color="#000000", size=12))
 
 def apply_dark_font(fig, title_color=None):
     """Aplica fuente oscura a todos los elementos del gráfico (compatible Plotly 6.x)."""
@@ -81,10 +81,10 @@ def apply_dark_font(fig, title_color=None):
     cartesian = chart_types - {"Indicator","Pie","Sunburst","Scatterpolar","Barpolar"}
     if cartesian:
         try:
-            fig.update_xaxes(tickfont=dict(color="#1A1A2E", size=11),
-                             title_font=dict(color="#1A1A2E"))
-            fig.update_yaxes(tickfont=dict(color="#1A1A2E", size=11),
-                             title_font=dict(color="#1A1A2E"))
+            fig.update_xaxes(tickfont=dict(color="#000000", size=11),
+                             title_font=dict(color="#000000"))
+            fig.update_yaxes(tickfont=dict(color="#000000", size=11),
+                             title_font=dict(color="#000000"))
         except Exception:
             pass
     return fig
@@ -570,11 +570,11 @@ fig_radar_big.update_layout(
     showlegend=True,
     legend=dict(
         orientation="h",
-        yanchor="bottom", y=-0.18,   # pushed well below "Controles Tecnológicos"
+        yanchor="bottom", y=-0.20,
         x=0.5, xanchor="center",
-        font=dict(size=11, color="#1A1A2E"),
-        bgcolor="rgba(255,255,255,0.95)",
-        bordercolor="#DDDDDD", borderwidth=1,
+        font=dict(size=12, color="#000000"),   # negro puro — visible sobre fondo blanco
+        bgcolor="rgba(255,255,255,1.0)",
+        bordercolor="#999999", borderwidth=1,
     ),
     height=680,                        # taller — more space for all labels
     margin=dict(l=100, r=100, t=140, b=160),  # t=140 → title clear of "Personas"
@@ -665,7 +665,9 @@ if hasattr(result, "a8_sub_scores") and result.a8_sub_scores:
             domain=dict(x=[0.05, 0.95], y=[0.05, 0.95]),
         ),
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.25, x=0.5, xanchor="center"),
+        legend=dict(orientation="h", yanchor="bottom", y=-0.28, x=0.5, xanchor="center",
+                    font=dict(size=11, color="#000000"),   # negro — visible sobre blanco
+                    bgcolor="rgba(255,255,255,1.0)", bordercolor="#AAAAAA", borderwidth=1),
         height=520, margin=dict(l=110,r=110,t=80,b=100), paper_bgcolor="white",
         title=dict(
             text="<b>Desglose A.8 Controles Tecnológicos</b>  ·  "
