@@ -106,7 +106,7 @@ def print_console_report(result: MaturityResult, log_path: str) -> None:
                           key=lambda x: x[1].raw_score):
         col  = _level_colour(ds.level)
         print()
-        print(f"  {BOLD}{col}{ds.domain_name}{RESET}  {GREY}({ds.clause}){RESET}")
+        print(f"  {BOLD}{col}{ds.domain_name}{RESET}  {GREY}({ds.annex_ref}){RESET}")
         print(f"  Score : {col}{ds.raw_score:5.1f}/100{RESET}   "
               f"Nivel {ds.level} — {col}{ds.level_name}{RESET}   "
               f"{GREY}(peso {ds.weight:.0%}){RESET}")
@@ -119,8 +119,13 @@ def print_console_report(result: MaturityResult, log_path: str) -> None:
             f"Severidad:{bd.get('severity_adjustment',0):+.1f}  "
             f"Cobertura:{bd.get('coverage_bonus',0):.1f}{RESET}"
         )
-        if ds.notes:
-            for note in ds.notes:
+        _auto_notes = (
+            [f"Score bajo ({ds.raw_score:.1f}/100). Controles {ds.domain_id} insuficientes."] if ds.raw_score < 40
+            else [f"Score moderado ({ds.raw_score:.1f}/100). Reforzar controles {ds.domain_id}."] if ds.raw_score < 60
+            else []
+        )
+        if _auto_notes:
+            for note in _auto_notes:
                 print(f"  {YELLOW}⚠ {note}{RESET}")
 
     # ── Critical findings ─────────────────────────────────────────────────
@@ -164,13 +169,13 @@ def export_json(result: MaturityResult, output_path: str) -> None:
         "domains": {
             key: {
                 "name": ds.domain_name,
-                "clause": ds.clause,
+                "clause": ds.annex_ref,
                 "weight": ds.weight,
                 "score": ds.raw_score,
                 "level": ds.level,
                 "level_name": ds.level_name,
                 "breakdown": ds.breakdown,
-                "notes": ds.notes,
+                "notes": ([f"Score bajo {ds.raw_score:.1f}/100: reforzar {ds.domain_id}"] if ds.raw_score < 50 else []),
             }
             for key, ds in result.domain_scores.items()
         },
@@ -212,13 +217,16 @@ def export_html(result: MaturityResult, log_path: str, output_path: str) -> None
     for key, ds in sorted(result.domain_scores.items(),
                           key=lambda x: x[1].raw_score):
         notes_html = "".join(
-            f'<li style="color:#FFC107;">⚠ {n}</li>' for n in ds.notes
-        ) if ds.notes else ""
+            f'<li style="color:#FFC107;">⚠ {n}</li>'
+            for n in ([f"Tasa de riesgo {Score bajo ({ds.raw_score:.1f}/100). Controles {ds.domain_id} requieren atención."] if ds.raw_score < 40
+                      else [f"Score moderado ({ds.raw_score:.1f}/100). Reforzar {ds.domain_id}."] if ds.raw_score < 60
+                      else [])
+        ) if ds.raw_score < 60 else ""
         bd = ds.breakdown
         domain_rows += f"""
         <tr>
           <td><strong>{ds.domain_name}</strong><br>
-              <small style="color:#888">{ds.clause}</small></td>
+              <small style="color:#888">{ds.annex_ref}</small></td>
           <td style="text-align:center">{level_badge(ds.level)}</td>
           <td style="text-align:center;font-size:1.2em;font-weight:bold;
                      color:{score_colour(ds.raw_score)}">{ds.raw_score:.1f}</td>
