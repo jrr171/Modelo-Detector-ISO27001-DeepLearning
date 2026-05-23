@@ -998,7 +998,7 @@ with col_sun:
         ids=sun_ids, labels=sun_labels, parents=sun_parents, values=sun_vals,
         marker=dict(colors=sun_colors, line=dict(width=1.5, color="white")),
         branchvalues="total",
-        hovertemplate="<b>%{label}</b><br>Eventos: %{value:,}<extra></extra>",
+        hovertemplate="<b>%{label}</b><br>""Eventos: <b>%{value:,}</b><br>""Porcentaje: <b>%{percentParent:.1%}</b> del dominio<br>""Del total: <b>%{percentRoot:.1%}</b><extra></extra>",
         textfont=dict(size=10),
         insidetextorientation="radial",
     ))
@@ -1019,7 +1019,8 @@ col_hist, col_prog = st.columns([1, 1.2])
 # ── GRÁFICO 9: Histograma distribución de niveles por dominio ────────────────
 with col_hist:
     st.markdown("#### 📊 Distribución de Dominios por Nivel COBIT")
-    level_names = [f"Nivel {i}\n{MATURITY_LEVELS[i]['name'][:12]}" for i in range(6)]
+    _lv_short = ["Inexistente","Inicial / Ad","Repetible pe","Proceso Defi","Administrado","Optimizado"]
+    level_names = [f"Nivel {i}\n{_lv_short[i]}" for i in range(6)]
     level_counts = [sum(1 for d in domains if d.level == i) for i in range(6)]
     level_pcts   = [c/len(domains)*100 for c in level_counts]
     bar_c        = [level_color(i) for i in range(6)]
@@ -1032,10 +1033,10 @@ with col_hist:
         hovertemplate="<b>%{x}</b><br>Dominios: %{y}<br>%{text}<extra></extra>",
     ))
     fig_hist.update_layout(
-        height=300, margin=dict(l=10,r=10,t=30,b=10),
+        height=320, margin=dict(l=10,r=10,t=30,b=70),
         paper_bgcolor="white", plot_bgcolor="white",
         yaxis=dict(title="N° de dominios", dtick=1, gridcolor="#F0F0F0", range=[0, len(domains)+0.5]),
-        xaxis=dict(tickfont=dict(size=9)),
+        xaxis=dict(tickfont=dict(size=9), tickangle=-30),
         showlegend=False,
     )
     apply_dark_font(fig_hist)
@@ -1063,10 +1064,16 @@ with col_prog:
     ))
     fig_gap.update_layout(
         barmode="stack", height=310,
-        margin=dict(l=10,r=10,t=20,b=50),
+        margin=dict(l=10,r=10,t=20,b=20),
         paper_bgcolor="white", plot_bgcolor="white",
-        legend=dict(orientation="h", y=-0.18, x=0.5, xanchor="center"),
-        xaxis=dict(title="Puntos", range=[0,100], gridcolor="#F0F0F0"),
+        showlegend=False,   # evita el checkbox huérfano en el eje X
+        xaxis=dict(title="Puntos (0–100)", range=[0,105], gridcolor="#F0F0F0"),
+        annotations=[
+            dict(x=50, y=-0.18, xref="paper", yref="paper", showarrow=False,
+                 text="<span style='color:#388E3C'>■ Score actual</span>"
+                      "   <span style='color:#B0BEC5'>■ Brecha al Nivel 5</span>",
+                 font=dict(size=11), align="center"),
+        ],
     )
     apply_dark_font(fig_gap)
     st.plotly_chart(fig_gap, use_container_width=True)
