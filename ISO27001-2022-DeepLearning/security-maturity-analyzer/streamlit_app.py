@@ -550,16 +550,18 @@ fig_radar_big.add_trace(go.Scatterpolar(
 
 fig_radar_big.update_layout(
     polar=dict(
+        # domain shrinks the chart inside the figure so labels have room
+        domain=dict(x=[0.08, 0.92], y=[0.08, 0.88]),
         radialaxis=dict(
-            visible=True, range=[0,105],
-            tickfont=dict(size=11, color="#333"),
+            visible=True, range=[0,115],
+            tickfont=dict(size=11, color="#555"),
             gridcolor="#DEDEDE",
             tickvals=[20,40,60,80,100],
             ticktext=["20","40","60","80","100"],
             linecolor="#BBBBBB",
         ),
         angularaxis=dict(
-            tickfont=dict(size=13, color="#1A1A2E"),
+            tickfont=dict(size=14, color="#1A1A2E", family="Arial Black"),
             linecolor="#BBBBBB",
             gridcolor="#EEEEEE",
         ),
@@ -567,19 +569,28 @@ fig_radar_big.update_layout(
     ),
     showlegend=True,
     legend=dict(
-        orientation="h", yanchor="top", y=-0.08, x=0.5, xanchor="center",
-        font=dict(size=11), bgcolor="rgba(255,255,255,0.8)",
+        orientation="h",
+        yanchor="bottom", y=-0.18,   # pushed well below "Controles Tecnológicos"
+        x=0.5, xanchor="center",
+        font=dict(size=11, color="#1A1A2E"),
+        bgcolor="rgba(255,255,255,0.95)",
         bordercolor="#DDDDDD", borderwidth=1,
     ),
-    height=560,
-    margin=dict(l=80, r=80, t=60, b=130),
+    height=680,                        # taller — more space for all labels
+    margin=dict(l=100, r=100, t=140, b=160),  # t=140 → title clear of "Personas"
     paper_bgcolor="white",
     title=dict(
-        text=f"<b>Perfil de Madurez ISO/IEC 27001:2022</b>  ·  "
-             f"<span style='color:{lc}'>Nivel {lvl} — {lvl_info['name']}</span>  ·  "
-             f"Score global: {result.overall_score:.1f}/100  ·  "
-             f"Nivel Efectivo (Auditoría): {gap.effective_level} — {gap.effective_level_name}",
-        x=0.5, xanchor="center", font=dict(size=13, color="#1A237E"),
+        text=(f"<b>Perfil de Madurez ISO/IEC 27001:2022</b>"
+              f"<br><span style='color:{lc};font-size:13px'>"
+              f"Nivel {lvl} — {lvl_info['name']}"
+              f"</span>"
+              f"<span style='color:#555;font-size:12px'>"
+              f"  ·  Score global: {result.overall_score:.1f}/100"
+              f"  ·  Nivel Efectivo Auditoría: {gap.effective_level} — {gap.effective_level_name}"
+              f"</span>"),
+        x=0.5, xanchor="center",
+        font=dict(size=15, color="#1A237E"),
+        pad=dict(b=20),
     ),
 )
 apply_dark_font(fig_radar_big)
