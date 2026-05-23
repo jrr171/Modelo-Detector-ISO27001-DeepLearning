@@ -1,0 +1,300 @@
+Feb 08 09:29:27 compliance[275]: clean_desk_fail: Sensitive documents found unattended at workstation scanner
+Jan 16 03:39:43 hr-sys[383]: awareness_session: Security awareness_session completed participants=47
+Mar 28 05:20:30 hr-sys[453]: nda_sign: User backup_svc nda_sign confidentiality agreement signed onboarding_complete
+Jan 05 08:39:12 hr-sys[426]: training_overdue: User root security training_overdue 43 days outstanding
+Jan 12 10:42:58 compliance[513]: clean_desk_audit: Workstation readonly_user clean_desk_audit passed screen_lock=active
+Feb 03 17:18:26 hr-sys[636]: awareness_session: Security awareness_session completed participants=30
+Mar 17 15:52:09 hr-sys[696]: training_complet: User aruiz security training_complet ISO27001:2022 awareness module score=95%
+Jan 11 00:48:17 hr-sys[732]: nda_sign: User scanner nda_sign confidentiality agreement signed onboarding_complete
+Jan 05 14:47:49 helpdesk[368]: security_report_user: Employee readonly_user reported security incident via channel INC-3432
+Feb 07 09:45:30 helpdesk[905]: security_report_user: Employee jgarcia reported security incident via channel INC-3560
+Mar 17 17:31:31 hr-sys[141]: training_complet: User api_svc security training_complet ISO27001:2022 awareness module score=95%
+Jan 05 17:57:12 iam-sys[114]: account_deprovisioned: User sysadmin account revoked on termination offboard_complete
+Feb 13 11:11:30 compliance[369]: clean_desk_fail: Sensitive documents found unattended at workstation mlopez
+Mar 03 07:58:31 asset-mgr[291]: hardware_asset: Equipment siem-srv-06 hardware_asset tracked location=DataCenter
+Feb 26 20:27:39 asset-mgr[259]: hardware_asset: Equipment backup-srv-07 hardware_asset tracked location=DataCenter
+Mar 21 16:34:12 ups-mon[183]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 12 15:11:41 access-ctrl[573]: badge_access: User jgarcia badge_access granted door=ServerRoom zone=SecureArea
+Mar 20 03:02:25 hr-sys[798]: training_complet: User sysadmin security training_complet ISO27001:2022 awareness module score=95%
+Jan 16 12:12:43 helpdesk[135]: security_report_user: Employee mlopez reported security incident via channel INC-2754
+Feb 18 05:08:27 hr-sys[677]: training_complet: User devops security training_complet ISO27001:2022 awareness module score=95%
+Jan 18 11:34:45 helpdesk[100]: security_report_user: Employee devops reported security incident via channel INC-8222
+Jan 07 23:54:34 helpdesk[688]: security_report_user: Employee devops reported security incident via channel INC-4743
+Feb 14 09:57:49 compliance[742]: clean_desk_audit: Workstation scanner clean_desk_audit passed screen_lock=active
+Mar 19 11:58:44 access-ctrl[724]: badge_access: User jgarcia badge_access granted door=ServerRoom zone=SecureArea
+Feb 05 17:35:30 cctv-mgr[302]: cctv_tamper: Camera CAM-4 tampered or offline physical_breach=suspected
+Mar 16 14:08:55 hr-sys[743]: training_complet: User scanner security training_complet ISO27001:2022 awareness module score=95%
+Mar 03 17:11:16 hr-sys[846]: nda_sign: User sysadmin nda_sign confidentiality agreement signed onboarding_complete
+Feb 01 11:46:19 hr-sys[573]: training_complet: User dbadmin security training_complet ISO27001:2022 awareness module score=95%
+Mar 06 06:13:35 ups-mon[809]: ups_critical: UPS power_failure detected switching to battery backup
+Feb 25 00:36:48 ups-mon[801]: ups_critical: UPS power_failure detected switching to battery backup
+Feb 23 05:14:44 phys-mon[106]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-2
+Feb 02 17:17:23 asset-mgr[397]: hardware_asset: Equipment web-srv-01 hardware_asset tracked location=DataCenter
+Feb 24 05:14:18 ups-mon[988]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 11 08:34:50 compliance[250]: clean_desk_fail: Sensitive documents found unattended at workstation dbadmin
+Jan 16 18:35:08 hr-sys[479]: training_complet: User jgarcia security training_complet ISO27001:2022 awareness module score=95%
+Feb 05 08:09:40 phys-mon[379]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-4
+Jan 26 01:14:31 asset-mgr[553]: hardware_asset: Equipment siem-srv-06 hardware_asset tracked location=DataCenter
+Feb 18 21:36:59 asset-mgr[694]: hardware_asset: Equipment db-srv-02 hardware_asset tracked location=DataCenter
+Mar 16 22:07:45 ups-mon[330]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 07 00:04:45 hr-sys[860]: nda_violat: Potential NDA violation detected user=jgarcia data shared externally
+Mar 14 01:40:56 hr-sys[705]: nda_sign: User scanner nda_sign confidentiality agreement signed onboarding_complete
+Feb 20 06:20:25 access-ctrl[862]: badge_access: User admin badge_access granted door=ServerRoom zone=SecureArea
+Mar 21 03:22:01 hr-sys[992]: awareness_session: Security awareness_session completed participants=34
+Feb 19 14:21:53 hr-sys[665]: training_overdue: User api_svc security training_overdue 66 days outstanding
+Feb 13 14:31:49 hr-sys[347]: training_complet: User scanner security training_complet ISO27001:2022 awareness module score=95%
+Mar 21 13:21:42 hr-sys[213]: nda_violat: Potential NDA violation detected user=scanner data shared externally
+Mar 07 08:56:13 hr-sys[877]: awareness_session: Security awareness_session completed participants=19
+Feb 07 16:43:33 compliance[888]: clean_desk_audit: Workstation jgarcia clean_desk_audit passed screen_lock=active
+Mar 02 02:38:02 helpdesk[863]: security_report_user: Employee mlopez reported security incident via channel INC-4982
+Feb 29 04:11:10 hr-sys[890]: awareness_session: Security awareness_session completed participants=16
+Jan 31 12:01:53 hr-sys[417]: training_complet: User api_svc security training_complet ISO27001:2022 awareness module score=95%
+Mar 03 11:54:31 helpdesk[630]: security_report_user: Employee scanner reported security incident via channel INC-8666
+Mar 27 05:48:50 access-ctrl[872]: badge_access: User sysadmin badge_access granted door=ServerRoom zone=SecureArea
+Jan 21 01:58:21 asset-mgr[810]: disposal_fail: Equipment disposal without data_sanitiz_fail verification
+Feb 04 19:08:38 iam-sys[438]: account_deprovisioned: User api_svc account revoked on termination offboard_complete
+Feb 11 12:08:05 access-ctrl[847]: badge_fail: User mlopez badge_fail access_denied door=DataCenter
+Mar 21 05:17:18 ups-mon[645]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 05 02:33:28 ups-mon[882]: ups_critical: UPS power_failure detected switching to battery backup
+Jan 15 21:26:03 ups-mon[632]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 06 18:25:06 asset-mgr[671]: hardware_asset: Equipment web-srv-01 hardware_asset tracked location=DataCenter
+Mar 01 01:16:20 asset-mgr[420]: device_stolen: Laptop reported missing user=api_svc asset_id=LTPT-1658
+Jan 06 01:32:37 ups-mon[844]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 14 19:33:44 hr-sys[629]: training_overdue: User readonly_user security training_overdue 52 days outstanding
+Feb 29 16:57:41 ups-mon[984]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 24 03:44:28 asset-mgr[566]: device_stolen: Laptop reported missing user=root asset_id=LTPT-4845
+Mar 24 22:30:56 hr-sys[733]: training_complet: User backup_svc security training_complet ISO27001:2022 awareness module score=95%
+Mar 18 01:52:18 access-ctrl[170]: badge_fail: User devops badge_fail access_denied door=DataCenter
+Feb 12 09:53:23 iam-sys[728]: account_deprovisioned: User mlopez account revoked on termination offboard_complete
+Feb 06 20:54:57 ups-mon[355]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 23 02:05:26 hr-sys[759]: training_complet: User backup_svc security training_complet ISO27001:2022 awareness module score=95%
+Jan 22 16:42:36 asset-mgr[416]: hardware_asset: Equipment web-srv-01 hardware_asset tracked location=DataCenter
+Mar 15 04:34:36 hr-sys[295]: training_complet: User root security training_complet ISO27001:2022 awareness module score=95%
+Feb 05 23:09:45 compliance[317]: clean_desk_audit: Workstation aruiz clean_desk_audit passed screen_lock=active
+Mar 28 07:02:01 cctv-mgr[715]: cctv_record: Camera CAM-2 recording in progress physical_access_log=active
+Jan 14 19:53:43 helpdesk[806]: security_report_user: Employee jgarcia reported security incident via channel INC-1348
+Jan 17 05:24:09 cctv-mgr[509]: cctv_record: Camera CAM-6 recording in progress physical_access_log=active
+Jan 21 13:56:55 hr-sys[573]: training_complet: User mlopez security training_complet ISO27001:2022 awareness module score=95%
+Feb 01 14:08:32 hr-sys[529]: training_complet: User aruiz security training_complet ISO27001:2022 awareness module score=95%
+Mar 16 10:34:15 hr-sys[458]: awareness_session: Security awareness_session completed participants=15
+Jan 31 13:15:19 access-ctrl[477]: badge_fail: User aruiz badge_fail access_denied door=DataCenter
+Jan 25 21:36:53 cctv-mgr[609]: cctv_record: Camera CAM-8 recording in progress physical_access_log=active
+Jan 30 01:42:36 cctv-mgr[341]: cctv_tamper: Camera CAM-12 tampered or offline physical_breach=suspected
+Feb 25 02:53:28 hr-sys[235]: nda_sign: User backup_svc nda_sign confidentiality agreement signed onboarding_complete
+Mar 14 23:46:44 access-ctrl[710]: badge_fail: User backup_svc badge_fail access_denied door=DataCenter
+Feb 18 19:08:47 hr-sys[891]: nda_sign: User mlopez nda_sign confidentiality agreement signed onboarding_complete
+Feb 19 21:36:57 compliance[318]: clean_desk_audit: Workstation backup_svc clean_desk_audit passed screen_lock=active
+Jan 21 03:57:57 compliance[740]: clean_desk_audit: Workstation root clean_desk_audit passed screen_lock=active
+Jan 19 21:16:46 hr-sys[194]: training_overdue: User root security training_overdue 60 days outstanding
+Mar 06 09:02:27 compliance[116]: clean_desk_audit: Workstation mlopez clean_desk_audit passed screen_lock=active
+Feb 16 14:57:45 ups-mon[319]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 18 10:33:19 helpdesk[265]: security_report_user: Employee mlopez reported security incident via channel INC-8734
+Feb 26 16:25:08 cctv-mgr[591]: cctv_record: Camera CAM-19 recording in progress physical_access_log=active
+Jan 29 05:11:50 ups-mon[593]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 25 11:04:49 access-ctrl[415]: badge_fail: User backup_svc badge_fail access_denied door=DataCenter
+Mar 12 23:28:57 compliance[442]: clean_desk_audit: Workstation jgarcia clean_desk_audit passed screen_lock=active
+Jan 05 00:17:38 hr-sys[980]: training_complet: User dbadmin security training_complet ISO27001:2022 awareness module score=95%
+Jan 10 01:12:02 asset-mgr[572]: device_stolen: Laptop reported missing user=admin asset_id=LTPT-6958
+Jan 26 22:37:49 hr-sys[870]: awareness_session: Security awareness_session completed participants=39
+Mar 04 17:03:57 ups-mon[730]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 09 21:06:34 phys-mon[124]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-2
+Jan 11 16:49:00 access-ctrl[285]: badge_access: User aruiz badge_access granted door=ServerRoom zone=SecureArea
+Mar 17 11:20:15 cctv-mgr[889]: cctv_record: Camera CAM-3 recording in progress physical_access_log=active
+Jan 06 06:45:51 compliance[602]: clean_desk_fail: Sensitive documents found unattended at workstation root
+Mar 05 16:05:41 asset-mgr[628]: disposal_fail: Equipment disposal without data_sanitiz_fail verification
+Mar 07 14:28:16 helpdesk[202]: security_report_user: Employee dbadmin reported security incident via channel INC-6593
+Jan 28 04:06:34 ups-mon[293]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 17 08:33:06 iam-sys[548]: account_deprovisioned: User jgarcia account revoked on termination offboard_complete
+Mar 07 05:12:42 asset-mgr[909]: hardware_asset: Equipment cloud-gw-05 hardware_asset tracked location=DataCenter
+Jan 27 01:34:50 access-ctrl[196]: badge_access: User devops badge_access granted door=ServerRoom zone=SecureArea
+Jan 19 14:20:53 iam-sys[283]: account_deprovisioned: User root account revoked on termination offboard_complete
+Mar 24 00:36:03 hr-sys[770]: nda_sign: User readonly_user nda_sign confidentiality agreement signed onboarding_complete
+Jan 13 21:17:36 access-ctrl[104]: badge_fail: User mlopez badge_fail access_denied door=DataCenter
+Jan 07 00:43:38 hr-sys[472]: nda_sign: User dbadmin nda_sign confidentiality agreement signed onboarding_complete
+Mar 04 19:22:50 hr-sys[271]: awareness_session: Security awareness_session completed participants=18
+Feb 10 13:33:27 cctv-mgr[379]: cctv_record: Camera CAM-8 recording in progress physical_access_log=active
+Feb 06 01:22:56 asset-mgr[557]: device_stolen: Laptop reported missing user=backup_svc asset_id=LTPT-3205
+Mar 15 02:34:59 compliance[842]: clean_desk_fail: Sensitive documents found unattended at workstation root
+Mar 21 21:29:30 hr-sys[124]: awareness_session: Security awareness_session completed participants=43
+Feb 01 23:36:53 cctv-mgr[676]: cctv_tamper: Camera CAM-19 tampered or offline physical_breach=suspected
+Feb 16 10:51:40 hr-sys[430]: training_complet: User backup_svc security training_complet ISO27001:2022 awareness module score=95%
+Feb 07 17:13:12 access-ctrl[950]: badge_access: User scanner badge_access granted door=ServerRoom zone=SecureArea
+Jan 10 12:28:00 hr-sys[375]: awareness_session: Security awareness_session completed participants=22
+Mar 26 07:06:56 hr-sys[889]: training_complet: User root security training_complet ISO27001:2022 awareness module score=95%
+Jan 10 05:52:29 ups-mon[551]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 14 22:39:00 phys-mon[750]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-3
+Feb 19 19:38:06 compliance[825]: clean_desk_fail: Sensitive documents found unattended at workstation api_svc
+Mar 21 11:59:59 asset-mgr[263]: disposal_fail: Equipment disposal without data_sanitiz_fail verification
+Mar 30 03:41:02 hr-sys[840]: awareness_session: Security awareness_session completed participants=15
+Jan 09 06:51:07 iam-sys[188]: account_deprovisioned: User dbadmin account revoked on termination offboard_complete
+Mar 15 20:42:29 iam-sys[199]: account_deprovisioned: User devops account revoked on termination offboard_complete
+Mar 25 05:37:18 cctv-mgr[740]: cctv_record: Camera CAM-4 recording in progress physical_access_log=active
+Feb 13 23:39:51 compliance[165]: clean_desk_audit: Workstation root clean_desk_audit passed screen_lock=active
+Mar 05 18:53:25 hr-sys[188]: awareness_session: Security awareness_session completed participants=13
+Mar 18 15:30:24 access-ctrl[377]: badge_fail: User aruiz badge_fail access_denied door=DataCenter
+Mar 08 07:14:42 hr-sys[160]: awareness_session: Security awareness_session completed participants=50
+Feb 11 07:54:32 access-ctrl[846]: badge_fail: User root badge_fail access_denied door=DataCenter
+Jan 08 10:56:23 ups-mon[858]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 04 23:37:14 iam-sys[911]: account_deprovisioned: User readonly_user account revoked on termination offboard_complete
+Feb 14 15:50:33 hr-sys[307]: nda_violat: Potential NDA violation detected user=admin data shared externally
+Feb 17 14:00:47 iam-sys[455]: account_deprovisioned: User backup_svc account revoked on termination offboard_complete
+Mar 05 02:15:03 asset-mgr[982]: device_stolen: Laptop reported missing user=api_svc asset_id=LTPT-9141
+Feb 15 23:36:55 ups-mon[731]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 18 05:57:08 hr-sys[218]: training_complet: User readonly_user security training_complet ISO27001:2022 awareness module score=95%
+Feb 16 18:47:05 compliance[214]: clean_desk_fail: Sensitive documents found unattended at workstation aruiz
+Feb 11 22:14:46 asset-mgr[224]: disposal_fail: Equipment disposal without data_sanitiz_fail verification
+Jan 27 14:06:08 access-ctrl[312]: badge_access: User dbadmin badge_access granted door=ServerRoom zone=SecureArea
+Mar 01 23:39:21 asset-mgr[493]: device_stolen: Laptop reported missing user=scanner asset_id=LTPT-1894
+Feb 13 05:01:33 compliance[510]: clean_desk_fail: Sensitive documents found unattended at workstation aruiz
+Mar 29 16:30:29 hr-sys[514]: training_complet: User devops security training_complet ISO27001:2022 awareness module score=95%
+Jan 13 21:06:35 cctv-mgr[364]: cctv_tamper: Camera CAM-11 tampered or offline physical_breach=suspected
+Mar 23 11:12:16 phys-mon[300]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-5
+Mar 02 20:49:53 iam-sys[665]: terminated_user_active: WARNING ex-employee root account still active offboard_fail
+Jan 30 18:05:58 cctv-mgr[346]: cctv_record: Camera CAM-20 recording in progress physical_access_log=active
+Jan 20 23:56:38 ups-mon[667]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 08 15:40:41 asset-mgr[117]: hardware_asset: Equipment backup-srv-07 hardware_asset tracked location=DataCenter
+Jan 20 05:16:13 hr-sys[294]: nda_violat: Potential NDA violation detected user=dbadmin data shared externally
+Feb 15 03:45:36 access-ctrl[729]: badge_access: User mlopez badge_access granted door=ServerRoom zone=SecureArea
+Mar 14 19:32:27 hr-sys[972]: nda_sign: User root nda_sign confidentiality agreement signed onboarding_complete
+Mar 15 21:36:29 compliance[992]: clean_desk_audit: Workstation scanner clean_desk_audit passed screen_lock=active
+Mar 24 04:01:14 hr-sys[274]: nda_sign: User aruiz nda_sign confidentiality agreement signed onboarding_complete
+Feb 09 04:10:34 asset-mgr[290]: hardware_asset: Equipment db-srv-02 hardware_asset tracked location=DataCenter
+Mar 08 17:40:32 hr-sys[251]: training_complet: User scanner security training_complet ISO27001:2022 awareness module score=95%
+Mar 29 23:26:13 asset-mgr[434]: device_stolen: Laptop reported missing user=backup_svc asset_id=LTPT-3335
+Feb 12 21:57:27 hr-sys[523]: training_complet: User mlopez security training_complet ISO27001:2022 awareness module score=95%
+Mar 28 17:40:36 access-ctrl[471]: badge_access: User mlopez badge_access granted door=ServerRoom zone=SecureArea
+Mar 06 06:23:14 hr-sys[722]: training_complet: User readonly_user security training_complet ISO27001:2022 awareness module score=95%
+Feb 03 07:52:40 ups-mon[571]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Jan 14 14:51:15 helpdesk[917]: security_report_user: Employee mlopez reported security incident via channel INC-8727
+Jan 12 22:33:52 hr-sys[629]: nda_sign: User jgarcia nda_sign confidentiality agreement signed onboarding_complete
+Mar 23 16:44:24 hr-sys[181]: training_overdue: User devops security training_overdue 90 days outstanding
+Jan 04 20:28:20 hr-sys[517]: training_complet: User api_svc security training_complet ISO27001:2022 awareness module score=95%
+Feb 06 19:23:40 iam-sys[170]: account_deprovisioned: User sysadmin account revoked on termination offboard_complete
+Feb 26 22:56:20 helpdesk[196]: security_report_user: Employee aruiz reported security incident via channel INC-9801
+Mar 07 16:56:29 hr-sys[284]: nda_sign: User dbadmin nda_sign confidentiality agreement signed onboarding_complete
+Mar 30 04:33:42 access-ctrl[868]: badge_access: User mlopez badge_access granted door=ServerRoom zone=SecureArea
+Jan 07 02:20:33 hr-sys[130]: training_complet: User scanner security training_complet ISO27001:2022 awareness module score=95%
+Jan 03 13:40:13 asset-mgr[217]: hardware_asset: Equipment dlp-agent-08 hardware_asset tracked location=DataCenter
+Mar 07 08:21:13 compliance[315]: clean_desk_audit: Workstation mlopez clean_desk_audit passed screen_lock=active
+Jan 22 15:05:11 access-ctrl[837]: badge_fail: User scanner badge_fail access_denied door=DataCenter
+Mar 16 23:00:39 compliance[287]: clean_desk_fail: Sensitive documents found unattended at workstation api_svc
+Feb 08 12:58:29 hr-sys[584]: training_complet: User aruiz security training_complet ISO27001:2022 awareness module score=95%
+Feb 27 22:55:17 helpdesk[184]: security_report_user: Employee jgarcia reported security incident via channel INC-3339
+Jan 05 21:34:51 access-ctrl[673]: badge_access: User backup_svc badge_access granted door=ServerRoom zone=SecureArea
+Jan 07 01:34:33 cctv-mgr[427]: cctv_record: Camera CAM-4 recording in progress physical_access_log=active
+Jan 09 11:00:34 phys-mon[829]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-3
+Jan 23 00:37:41 hr-sys[191]: training_complet: User sysadmin security training_complet ISO27001:2022 awareness module score=95%
+Jan 17 21:44:59 hr-sys[207]: awareness_session: Security awareness_session completed participants=25
+Mar 28 00:31:08 phys-mon[777]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-4
+Mar 27 01:46:27 access-ctrl[271]: badge_fail: User readonly_user badge_fail access_denied door=DataCenter
+Mar 23 14:52:06 hr-sys[703]: awareness_session: Security awareness_session completed participants=17
+Jan 10 10:05:34 ups-mon[610]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Feb 06 19:13:10 compliance[498]: clean_desk_fail: Sensitive documents found unattended at workstation dbadmin
+Mar 09 18:57:06 compliance[888]: clean_desk_audit: Workstation sysadmin clean_desk_audit passed screen_lock=active
+Feb 15 10:41:53 access-ctrl[548]: badge_access: User dbadmin badge_access granted door=ServerRoom zone=SecureArea
+Mar 01 04:28:43 hr-sys[987]: awareness_session: Security awareness_session completed participants=40
+Mar 28 07:50:06 cctv-mgr[943]: cctv_record: Camera CAM-18 recording in progress physical_access_log=active
+Jan 13 04:54:40 access-ctrl[771]: badge_access: User backup_svc badge_access granted door=ServerRoom zone=SecureArea
+Feb 29 19:24:44 hr-sys[703]: training_complet: User root security training_complet ISO27001:2022 awareness module score=95%
+Mar 27 19:12:59 access-ctrl[104]: badge_access: User mlopez badge_access granted door=ServerRoom zone=SecureArea
+Mar 29 10:12:03 asset-mgr[769]: hardware_asset: Equipment db-srv-02 hardware_asset tracked location=DataCenter
+Feb 12 22:16:01 compliance[152]: clean_desk_fail: Sensitive documents found unattended at workstation sysadmin
+Jan 22 05:24:10 hr-sys[519]: awareness_session: Security awareness_session completed participants=35
+Mar 13 06:22:19 iam-sys[555]: account_deprovisioned: User readonly_user account revoked on termination offboard_complete
+Mar 19 01:40:21 hr-sys[968]: awareness_session: Security awareness_session completed participants=16
+Feb 16 09:58:38 iam-sys[289]: account_deprovisioned: User scanner account revoked on termination offboard_complete
+Jan 12 10:04:26 hr-sys[242]: awareness_session: Security awareness_session completed participants=40
+Jan 23 02:57:05 cctv-mgr[932]: cctv_record: Camera CAM-3 recording in progress physical_access_log=active
+Feb 17 18:29:18 iam-sys[971]: account_deprovisioned: User dbadmin account revoked on termination offboard_complete
+Feb 10 00:40:00 ups-mon[786]: ups_critical: UPS power_failure detected switching to battery backup
+Feb 05 20:54:53 iam-sys[290]: account_deprovisioned: User readonly_user account revoked on termination offboard_complete
+Jan 03 16:10:33 asset-mgr[526]: disposal_fail: Equipment disposal without data_sanitiz_fail verification
+Mar 11 05:57:19 compliance[673]: clean_desk_audit: Workstation scanner clean_desk_audit passed screen_lock=active
+Mar 22 10:51:30 hr-sys[605]: nda_violat: Potential NDA violation detected user=sysadmin data shared externally
+Mar 06 04:36:08 hr-sys[476]: nda_sign: User dbadmin nda_sign confidentiality agreement signed onboarding_complete
+Mar 17 02:06:06 compliance[993]: clean_desk_audit: Workstation sysadmin clean_desk_audit passed screen_lock=active
+Jan 14 12:23:06 access-ctrl[248]: badge_access: User root badge_access granted door=ServerRoom zone=SecureArea
+Feb 10 04:46:12 hr-sys[607]: training_overdue: User dbadmin security training_overdue 50 days outstanding
+Mar 19 02:38:58 access-ctrl[297]: badge_access: User readonly_user badge_access granted door=ServerRoom zone=SecureArea
+Jan 05 01:16:13 access-ctrl[966]: badge_access: User admin badge_access granted door=ServerRoom zone=SecureArea
+Mar 17 02:49:55 ups-mon[815]: ups_critical: UPS power_failure detected switching to battery backup
+Mar 19 06:17:37 compliance[597]: clean_desk_audit: Workstation readonly_user clean_desk_audit passed screen_lock=active
+Mar 15 07:28:26 access-ctrl[378]: badge_access: User scanner badge_access granted door=ServerRoom zone=SecureArea
+Jan 26 02:06:53 asset-mgr[106]: hardware_asset: Equipment dlp-agent-08 hardware_asset tracked location=DataCenter
+Jan 28 02:44:25 hr-sys[736]: awareness_session: Security awareness_session completed participants=11
+Mar 19 06:39:40 access-ctrl[645]: badge_access: User api_svc badge_access granted door=ServerRoom zone=SecureArea
+Feb 23 19:40:02 iam-sys[255]: account_deprovisioned: User jgarcia account revoked on termination offboard_complete
+Jan 20 21:21:31 compliance[541]: clean_desk_audit: Workstation sysadmin clean_desk_audit passed screen_lock=active
+Mar 10 00:43:42 hr-sys[930]: training_complet: User root security training_complet ISO27001:2022 awareness module score=95%
+Feb 23 23:42:28 hr-sys[107]: nda_sign: User scanner nda_sign confidentiality agreement signed onboarding_complete
+Jan 03 23:02:10 asset-mgr[888]: device_stolen: Laptop reported missing user=root asset_id=LTPT-9801
+Mar 28 12:22:26 access-ctrl[234]: badge_fail: User mlopez badge_fail access_denied door=DataCenter
+Jan 08 00:12:42 iam-sys[114]: account_deprovisioned: User api_svc account revoked on termination offboard_complete
+Jan 24 05:42:48 cctv-mgr[279]: cctv_record: Camera CAM-9 recording in progress physical_access_log=active
+Mar 09 11:59:05 hr-sys[121]: awareness_session: Security awareness_session completed participants=26
+Feb 13 07:20:15 compliance[495]: clean_desk_fail: Sensitive documents found unattended at workstation backup_svc
+Mar 19 04:42:53 iam-sys[878]: account_deprovisioned: User api_svc account revoked on termination offboard_complete
+Mar 18 18:06:04 iam-sys[325]: account_deprovisioned: User sysadmin account revoked on termination offboard_complete
+Feb 27 23:55:32 cctv-mgr[947]: cctv_record: Camera CAM-2 recording in progress physical_access_log=active
+Jan 26 11:13:42 cctv-mgr[942]: cctv_record: Camera CAM-4 recording in progress physical_access_log=active
+Jan 07 23:12:24 asset-mgr[142]: hardware_asset: Equipment auth-srv-03 hardware_asset tracked location=DataCenter
+Mar 09 07:58:33 iam-sys[750]: terminated_user_active: WARNING ex-employee admin account still active offboard_fail
+Jan 07 10:08:44 iam-sys[115]: account_deprovisioned: User aruiz account revoked on termination offboard_complete
+Mar 30 16:51:33 hr-sys[699]: nda_sign: User sysadmin nda_sign confidentiality agreement signed onboarding_complete
+Mar 03 09:52:00 helpdesk[597]: security_report_user: Employee jgarcia reported security incident via channel INC-4193
+Mar 26 00:06:50 iam-sys[652]: account_deprovisioned: User sysadmin account revoked on termination offboard_complete
+Mar 27 04:54:42 asset-mgr[291]: hardware_asset: Equipment cloud-gw-05 hardware_asset tracked location=DataCenter
+Feb 04 22:30:34 hr-sys[825]: training_complet: User dbadmin security training_complet ISO27001:2022 awareness module score=95%
+Mar 29 00:15:06 iam-sys[749]: account_deprovisioned: User sysadmin account revoked on termination offboard_complete
+Mar 23 07:41:46 helpdesk[777]: security_report_user: Employee backup_svc reported security incident via channel INC-6413
+Jan 24 04:21:49 ups-mon[810]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 25 01:45:50 access-ctrl[347]: badge_access: User jgarcia badge_access granted door=ServerRoom zone=SecureArea
+Feb 06 21:27:45 compliance[860]: clean_desk_audit: Workstation sysadmin clean_desk_audit passed screen_lock=active
+Jan 31 23:24:49 cctv-mgr[278]: cctv_record: Camera CAM-9 recording in progress physical_access_log=active
+Mar 23 08:46:20 hr-sys[106]: training_overdue: User jgarcia security training_overdue 77 days outstanding
+Jan 12 09:41:02 asset-mgr[125]: hardware_asset: Equipment web-srv-01 hardware_asset tracked location=DataCenter
+Feb 12 10:12:37 cctv-mgr[867]: cctv_record: Camera CAM-15 recording in progress physical_access_log=active
+Mar 14 21:10:56 iam-sys[296]: account_deprovisioned: User scanner account revoked on termination offboard_complete
+Feb 21 10:42:49 hr-sys[603]: awareness_session: Security awareness_session completed participants=49
+Mar 16 05:52:45 cctv-mgr[501]: cctv_record: Camera CAM-12 recording in progress physical_access_log=active
+Mar 23 16:49:33 hr-sys[205]: nda_sign: User jgarcia nda_sign confidentiality agreement signed onboarding_complete
+Mar 03 11:27:51 cctv-mgr[201]: cctv_tamper: Camera CAM-20 tampered or offline physical_breach=suspected
+Mar 14 22:39:10 access-ctrl[849]: badge_access: User mlopez badge_access granted door=ServerRoom zone=SecureArea
+Jan 21 08:12:53 cctv-mgr[326]: cctv_record: Camera CAM-7 recording in progress physical_access_log=active
+Feb 28 13:14:54 asset-mgr[149]: hardware_asset: Equipment dlp-agent-08 hardware_asset tracked location=DataCenter
+Feb 02 13:25:28 compliance[658]: clean_desk_audit: Workstation devops clean_desk_audit passed screen_lock=active
+Jan 11 21:32:37 hr-sys[601]: nda_sign: User backup_svc nda_sign confidentiality agreement signed onboarding_complete
+Jan 16 21:30:41 access-ctrl[488]: badge_fail: User backup_svc badge_fail access_denied door=DataCenter
+Jan 21 18:35:50 ups-mon[685]: ups_critical: UPS power_failure detected switching to battery backup
+Feb 29 19:49:07 iam-sys[227]: account_deprovisioned: User backup_svc account revoked on termination offboard_complete
+Mar 05 22:09:06 access-ctrl[229]: badge_access: User api_svc badge_access granted door=ServerRoom zone=SecureArea
+Mar 09 15:09:43 access-ctrl[805]: badge_fail: User api_svc badge_fail access_denied door=DataCenter
+Mar 30 07:22:47 compliance[924]: clean_desk_audit: Workstation backup_svc clean_desk_audit passed screen_lock=active
+Jan 02 22:09:10 cctv-mgr[970]: cctv_tamper: Camera CAM-15 tampered or offline physical_breach=suspected
+Jan 29 09:36:04 hr-sys[497]: awareness_session: Security awareness_session completed participants=36
+Mar 27 05:49:15 hr-sys[180]: nda_sign: User sysadmin nda_sign confidentiality agreement signed onboarding_complete
+Mar 10 15:40:07 access-ctrl[909]: badge_access: User root badge_access granted door=ServerRoom zone=SecureArea
+Feb 18 08:25:56 asset-mgr[670]: hardware_asset: Equipment web-srv-01 hardware_asset tracked location=DataCenter
+Jan 31 19:07:31 hr-sys[881]: nda_sign: User scanner nda_sign confidentiality agreement signed onboarding_complete
+Jan 16 18:05:16 asset-mgr[244]: device_stolen: Laptop reported missing user=devops asset_id=LTPT-9278
+Feb 23 15:59:25 access-ctrl[711]: badge_access: User root badge_access granted door=ServerRoom zone=SecureArea
+Mar 18 00:46:20 compliance[446]: clean_desk_audit: Workstation readonly_user clean_desk_audit passed screen_lock=active
+Feb 04 00:11:01 cctv-mgr[813]: cctv_record: Camera CAM-14 recording in progress physical_access_log=active
+Mar 05 23:19:42 phys-mon[707]: unauthorized_physical: Tailgating detected door=MainEntrance camera=CAM-5
+Feb 05 15:10:35 cctv-mgr[748]: cctv_record: Camera CAM-15 recording in progress physical_access_log=active
+Feb 11 07:15:11 ups-mon[923]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Mar 06 14:46:12 iam-sys[153]: account_deprovisioned: User scanner account revoked on termination offboard_complete
+Mar 13 15:39:21 iam-sys[763]: account_deprovisioned: User devops account revoked on termination offboard_complete
+Feb 05 14:57:04 access-ctrl[582]: badge_fail: User readonly_user badge_fail access_denied door=DataCenter
+Feb 26 19:20:07 access-ctrl[196]: badge_access: User scanner badge_access granted door=ServerRoom zone=SecureArea
+Feb 27 18:54:48 asset-mgr[266]: device_stolen: Laptop reported missing user=sysadmin asset_id=LTPT-8405
+Jan 02 14:25:20 hr-sys[196]: nda_sign: User admin nda_sign confidentiality agreement signed onboarding_complete
+Mar 23 00:50:17 access-ctrl[322]: badge_fail: User sysadmin badge_fail access_denied door=DataCenter
+Jan 23 14:14:35 compliance[833]: clean_desk_fail: Sensitive documents found unattended at workstation backup_svc
+Mar 12 23:39:54 ups-mon[139]: ups_critical: UPS power_failure detected switching to battery backup
+Jan 05 07:56:15 helpdesk[435]: security_report_user: Employee devops reported security incident via channel INC-2585
+Jan 29 12:05:08 iam-sys[908]: account_deprovisioned: User jgarcia account revoked on termination offboard_complete
+Feb 21 02:08:33 iam-sys[352]: terminated_user_active: WARNING ex-employee api_svc account still active offboard_fail
+Feb 02 03:00:09 ups-mon[107]: ups_ok: UPS battery level 98% power_stable all systems nominal
+Jan 31 14:44:31 asset-mgr[293]: hardware_asset: Equipment siem-srv-06 hardware_asset tracked location=DataCenter
+Mar 25 08:18:44 hr-sys[254]: nda_sign: User jgarcia nda_sign confidentiality agreement signed onboarding_complete
