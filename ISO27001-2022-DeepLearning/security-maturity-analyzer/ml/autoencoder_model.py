@@ -11,10 +11,16 @@ Técnicas DL:  BatchNorm, Dropout, Adam, Early Stopping, scheduler ReduceLROnPla
 """
 
 import numpy as np
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader, TensorDataset
+try:
+    import torch
+    import torch.nn as nn
+    import torch.optim as optim
+    from torch.utils.data import DataLoader, TensorDataset
+    TORCH_OK = True
+except ImportError:
+    TORCH_OK = False
+    import warnings
+    warnings.warn("PyTorch no disponible — Autoencoder usará implementación NumPy de respaldo.")
 from typing import List, Dict
 from analyzer.log_parser import LogEntry
 from ml.feature_extractor import LogFeatureExtractor, N_TOTAL
@@ -25,7 +31,8 @@ np.random.seed(42)
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-class _AENet(nn.Module):
+if TORCH_OK:
+ class _AENet(nn.Module):
     """
     Autoencoder profundo con BatchNorm y Dropout.
     Encoder: 63 → 32 → 16 → 8
