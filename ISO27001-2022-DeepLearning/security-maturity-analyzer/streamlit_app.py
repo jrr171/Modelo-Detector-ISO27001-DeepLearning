@@ -1453,18 +1453,21 @@ if run_dl or "dl_result" in st.session_state:
         # Auto-scale y-axis based on actual values
         y_min = min(train_loss) * 0.9
         y_max = max(train_loss) * 1.1
-        fig.update_layout(
+        layout_args = dict(
             title=dict(text=title, font=dict(size=13, color=color)),
             height=250, margin=dict(l=45,r=45,t=45,b=35),
             paper_bgcolor="white", plot_bgcolor="white",
             legend=dict(orientation="h", y=-0.28, font=dict(size=9)),
-            xaxis=dict(title="Época", gridcolor="#F0F0F0", tickmode="auto"),
+            xaxis=dict(title="Época", gridcolor="#F0F0F0"),
             yaxis=dict(title="Pérdida", gridcolor="#F0F0F0",
-                       range=[y_min, y_max], tickformat=".4f", autorange=False),
-            yaxis2=dict(title="Accuracy %", overlaying="y", side="right",
-                        range=[0, 105], tickformat=".0f", showgrid=False,
-                        tickcolor="#FFA726", titlefont=dict(color="#FFA726")),
+                       range=[y_min, y_max], tickformat=".4f"),
         )
+        if train_acc:
+            layout_args["yaxis2"] = dict(
+                title="Accuracy %", overlaying="y", side="right",
+                range=[0, 105], tickformat=".0f", showgrid=False,
+            )
+        fig.update_layout(**layout_args)
         return fig
 
     with tc1:
