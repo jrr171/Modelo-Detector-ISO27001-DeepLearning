@@ -751,7 +751,7 @@ for idx, (key, ds_score) in enumerate(result.domain_scores.items()):
             f'  🌐 IPs únicas: <b>{len(ds.unique_ips)}</b> &nbsp;·&nbsp; '
             f'  👤 Usuarios: <b>{len(ds.unique_users)}</b>'
             f'</div>'
-            + ("".join(f'<div style="margin-top:5px;font-size:.78em;color:#E65100">⚠ {n}</div>' for n in ds_score.notes) if ds_score.notes else '')
+            + (f'<div style="margin-top:5px;font-size:.78em;color:#C62828">⚠ Tasa de riesgo alta ({risk_pct:.1f}%). Controles insuficientes.</div>' if risk_pct > 20 else f'<div style="margin-top:5px;font-size:.78em;color:#E65100">⚠ Tasa de riesgo moderada ({risk_pct:.1f}%). Revisar controles {ds_score.domain_id}.</div>' if risk_pct > 10 else f'<div style="margin-top:5px;font-size:.78em;color:#2E7D32">✅ Sin eventos de riesgo significativos en {ds_score.domain_id}.</div>')
             + f'</div>',
             unsafe_allow_html=True,
         )
