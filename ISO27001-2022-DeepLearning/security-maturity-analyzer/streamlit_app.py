@@ -263,7 +263,7 @@ with tab_compare:
                 ),
                 showlegend=True,
                 legend=dict(orientation="h", y=-0.12, x=0.5, xanchor="center", font=dict(size=10)),
-                height=520, margin=dict(l=80,r=80,t=60,b=120), paper_bgcolor="white",
+                height=520, margin=dict(l=80,r=80,t=120,b=120), paper_bgcolor="white",
                 title=dict(text="<b>Comparativa de Perfiles de Madurez ISO 27001:2022</b>",
                            x=0.5, font=dict(size=14, color="#0D47A1")),
             )
@@ -489,7 +489,7 @@ st.markdown(
 )
 st.markdown(
     "El gráfico radar muestra el **perfil de madurez** de la organización en los "
-    "**6 dominios de control ISO/IEC 27001:2022**. Cada vértice representa el score "
+    "**4 dominios de control ISO/IEC 27001:2022** (Anexo A). Cada vértice representa el score "
     "(0–100) de un dominio. Los **anillos de referencia** indican los umbrales de los "
     "5 niveles COBIT. La forma del polígono revela qué áreas son fortalezas y cuáles "
     "requieren atención prioritaria."
@@ -575,11 +575,11 @@ fig_radar_big.update_layout(
     margin=dict(l=80, r=80, t=60, b=130),
     paper_bgcolor="white",
     title=dict(
-        text=f"<b>Perfil de Madurez ISO 27001:2022</b>  ·  "
-        f"Nivel Efectivo Auditoría: {gap.effective_level} — {gap.effective_level_name}  ·  "
+        text=f"<b>Perfil de Madurez ISO/IEC 27001:2022</b>  ·  "
              f"<span style='color:{lc}'>Nivel {lvl} — {lvl_info['name']}</span>  ·  "
-             f"Score global: <b>{result.overall_score:.1f}/100</b>",
-        x=0.5, xanchor="center", font=dict(size=15, color="#1A237E"),
+             f"Score global: {result.overall_score:.1f}/100  ·  "
+             f"Nivel Efectivo (Auditoría): {gap.effective_level} — {gap.effective_level_name}",
+        x=0.5, xanchor="center", font=dict(size=13, color="#1A237E"),
     ),
 )
 apply_dark_font(fig_radar_big)
