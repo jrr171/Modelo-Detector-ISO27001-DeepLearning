@@ -6,7 +6,7 @@ en una Evaluación de Madurez conforme a ISO/IEC 27001:2022
 
 Gráficos incluidos:
   1. Medidor (gauge) de madurez global
-  2. Radar de dominios ISO/IEC 27001:2022 (Cláusulas 5-8)
+  2. Radar de temas del Anexo A — ISO/IEC 27001:2022 (A.5/A.6/A.7/A.8)
   3. Barras comparativas: riesgo vs seguro por dominio
   4. Desglose de componentes de score (stacked bar)
   5. Distribución de eventos por dominio (pie)
@@ -139,7 +139,7 @@ with st.sidebar:
         )
     st.markdown("**Modelo COBIT — 6 Niveles de Madurez**")
     st.markdown("""<div style='background:#E3F2FD;border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:.82em;color:#1565C0'>
-    📋 <b>93 controles</b> distribuidos en 4 cláusulas:<br>
+    📋 <b>93 controles</b> en 4 temas del Anexo A (ISO/IEC 27001:2022):<br>
     🔹 A.5: 37 Controles Organizacionales<br>
     🔹 A.6: 8 Controles de Personas<br>
     🔹 A.7: 14 Controles Físicos<br>
@@ -301,9 +301,9 @@ if not entries:
     st.markdown("### ¿Cómo usar esta herramienta?")
     st.markdown("""
 1. **Sube tus logs** o usa el botón **Demo** para ver un ejemplo inmediato.
-2. La herramienta clasifica los eventos según los **6 dominios de ISO/IEC 27001:2022** (Cláusulas 5–8, 93 controles).
-3. Calcula el **nivel de madurez COBIT (0–5)** con gráficos detallados.
-4. Descarga el reporte en **HTML o JSON** para tu tesis.
+2. La herramienta **clasifica** los eventos según los **4 temas del Anexo A** de ISO/IEC 27001:2022 (A.5–A.8, 93 controles). Los eventos técnicos (accesos, alertas de red, autenticaciones) se mapean a los controles correspondientes de cada tema.
+3. **Calcula automáticamente** el nivel de madurez COBIT (0–5) con gráficos detallados.
+4. **Descarga** el reporte en HTML o JSON para tu tesis.
     """)
     for i, (key, dom) in enumerate(ISO27001_DOMAINS.items()):
         with st.expander(f"{dom.id} — {dom.name}  (peso {dom.weight:.0%})"):
@@ -820,7 +820,7 @@ st.markdown("---")
 # ════════════════════════════════════════════════════════
 # FILA 2: Barras comparativas + Desglose componentes
 # ════════════════════════════════════════════════════════
-st.markdown('<div class="section-hdr">📋 Análisis por Dominio — ISO/IEC 27001:2022 (Cláusulas 5–8)</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-hdr">📋 Análisis por Tema del Anexo A — ISO/IEC 27001:2022 (A.5 · A.6 · A.7 · A.8)</div>', unsafe_allow_html=True)
 col_bar1, col_bar2 = st.columns(2)
 
 # ── GRÁFICO 3: Barras riesgo vs seguro por dominio ────────────────────────────
